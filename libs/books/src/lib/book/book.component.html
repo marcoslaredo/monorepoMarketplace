@@ -1,0 +1,8 @@
+<div class="bookWrapper" *ngIf="book">
+    <div class="title">{{book.title}}</div>
+    <div class="desc">{{book.description}}</div>
+    <img [src]="book.image" alt="Thumbnail" class="thumb">
+    <div class="price">{{book.price}}</div>
+    <button type="button" class="action" [ngClass]="{'onCart':isPresentOnCart}" (click)="cartActionFn()">{{actionText}}</button>
+</div>
+

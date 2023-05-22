@@ -1,0 +1,8 @@
+<ng-container *ngIf="books$ | async as books">
+  <bmc-book
+    [book]="book"
+    [isPresentOnCart]="isOnCart(book)"
+    *ngFor="let book of books"
+    (cartAction)="cartAction($event)">
+  </bmc-book>
+</ng-container>
