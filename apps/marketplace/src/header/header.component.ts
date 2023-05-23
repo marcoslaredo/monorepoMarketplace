@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { CartService } from "@bmc/cart-bl";
-import { Observable } from "rxjs";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CartService } from '@bmc/cart-bl';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'bmc-header',
@@ -10,9 +10,5 @@ import { Observable } from "rxjs";
 })
 export class HeaderComponent {
   public cartCounter$?: Observable<number> = this.cartService.cartCounter$;
-
-  constructor(
-    private cartService: CartService,
-    ) {
-  }
+  constructor(private cartService: CartService) {}
 }

@@ -7,6 +7,10 @@
     </a>
   </li>
   <li class="left"><h2>Marketplace</h2></li>
-  <li class="right"><a routerLink="/feed">Feed</a></li>
-  <li class="right"><a routerLink="/cart">Cart {{ (cartCounter$ | async) ? '(' + (cartCounter$ | async) + ')' : '' }}</a></li>
+  <li class="right" routerLinkActive="active">
+    <a routerLink="/cart">Cart {{ (cartCounter$ | async) ? '(' + (cartCounter$ | async) + ')' : '' }}</a>
+  </li>
+  <li class="right" routerLinkActive="active">
+    <a routerLink="/feed">Feed</a>
+  </li>
 </ul>

@@ -1,8 +1,7 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Book, BooksService } from '@bmc/books';
-import { CartService } from "@bmc/cart-bl";
-
+import { CartService } from '@bmc/cart-bl';
 
 @Component({
   selector: 'bmc-feed',
@@ -10,9 +9,9 @@ import { CartService } from "@bmc/cart-bl";
   styleUrls: ['./feed.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FeedComponent implements OnInit{
-  books$?: Observable<Book[]>;
-  cart$?: Observable<Book[]>;
+export class FeedComponent implements OnInit {
+  books$!: Observable<Book[]>;
+  cart$!: Observable<Book[]>;
   constructor(
     private booksService: BooksService,
     private cartService: CartService
@@ -22,7 +21,7 @@ export class FeedComponent implements OnInit{
     this.cart$ = this.cartService.getCart();
   }
   cartAction(book: Book) {
-    if( !this.isOnCart(book)) {
+    if (!this.isOnCart(book)) {
       this.cartService.addToCart(book);
     } else {
       this.cartService.removeFromCart(book);
@@ -31,9 +30,9 @@ export class FeedComponent implements OnInit{
 
   isOnCart(book: Book): boolean {
     let isListed = false;
-    this.cart$?.subscribe( cart => {
-      isListed = cart?.some( b => b.id === book.id) || false;
-    })
-    return isListed
+    this.cart$?.subscribe((cart) => {
+      isListed = cart?.some((b) => b.id === book.id) || false;
+    });
+    return isListed;
   }
 }

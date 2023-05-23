@@ -31,8 +31,17 @@ ul {
     }
     &.right {
       float: right;
-      a:hover {
-        background-color: #111;
+      a {
+        width: 70px;
+        &:hover {
+          background-color: #111;
+        }
+      }
+      &.active {
+        background-color: green;
+        a:hover {
+          background-color: darkgreen;
+        }
       }
     }
   }
